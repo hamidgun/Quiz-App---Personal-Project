@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background-color: #EEEEEE;
+}
+
+.container {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    margin: .5rem 0;
+}
+
+.active {
+    color: #fff !important;
+}
+
+.d-flex {
+    display: flex;
+}
