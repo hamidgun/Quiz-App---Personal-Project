@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="contact.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="utils.css" />
     <title>Contact</title>
@@ -35,6 +36,77 @@
         </div>
       </div>
     </nav>
+    <!-- contact form -->
+    <section id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+          <div class="contact-map">
+            <iframe
+              id="map"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3127.1055834740687!2d8.513427707271132!3d47.160107943715616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sch!4v1737926738438!5m2!1sen!2sch"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="contact-form">
+            <div class="alert-message">Please fill out the form</div>
+            <form action="">
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" />
+              </div>
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" />
+              </div>
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="phone" name="phone" id="phone" />
+              </div>
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" name="subject" id="subject" />
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label"
+                  >Enter your message</label
+                >
+                <textarea name="message" id="message"></textarea>
+              </div>
+
+              <button>Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2025 Quiz App. All rights reserved.</p>
+          <ul class="social-links">
+            <li>
+              <a href="#"><i class="fa-brands fa-github"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-x"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
     <script
       src="https://kit.fontawesome.com/2c6fab47d7.js"
       crossorigin="anonymous"
