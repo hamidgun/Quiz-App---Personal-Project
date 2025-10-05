@@ -8,6 +8,12 @@
     color: #333;
 }
 
+@media (max-width: 1018px) {
+    #contact h2 {
+        text-align: center;
+    }
+} 
+
 .contact-container {
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +26,12 @@
     width: 49.6%;
 }
 
+@media (max-width: 1018px) {
+    .contact-map {
+        min-height: 300px;
+        order: 1;
+    }
+}
 .contact-form {
     padding: 2rem;
     background-color: #5D2F77;
@@ -72,4 +84,10 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+@media (max-width: 1018px) {
+    footer {
+        position: static;
+    }
 }
