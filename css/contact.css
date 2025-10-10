@@ -58,7 +58,7 @@
 .contact-form button {
     width: 100%;
     margin-top: 2rem;
-    background-color: #fff;
+    background-color: #ffc107;
     color: #5D2F77;
     border-radius: 6px;
     padding: 1rem;
@@ -69,7 +69,8 @@
 }
 
 .contact-form button:hover {
-    background-color: #ffc107;
+    background-color: #fff;
+    color: #5D2F77;
 }
 
 .contact-form textarea {
