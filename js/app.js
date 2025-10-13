@@ -31,7 +31,8 @@ function startQuiz(quizID) {
 }
 
 ui.btnNext.addEventListener("click", function () {
-  if (selectedQuiz.htmlQuestionList.length != selectedQuiz.questionIndex) {
+  if (selectedQuiz.length != selectedQuiz.questionIndex) {
+    ui.showTitle(selectedQuiz); // This function is defined in ui.js
     ui.showQuestion(selectedQuiz.getQuestion());
     ui.showQuestionNumber(
       selectedQuiz.questionIndex + 1,
@@ -42,7 +43,10 @@ ui.btnNext.addEventListener("click", function () {
     ui.btnNext.classList.remove("show");
   } else {
     // Quiz is finished.
-    ui.showScore(quiz.numberOfCorrectAnswer, quiz.questions.length);
+    ui.showScore(
+      selectedQuiz.numberOfCorrectAnswer,
+      selectedQuiz.questions.length
+    );
     ui.quizBox.classList.remove("active");
     ui.scoreBox.classList.add("active");
   }
@@ -76,7 +80,7 @@ function optionSelected(e) {
   // this function is bound to an event(click) which is in ui.js
 
   const answer = e.currentTarget.textContent[0];
-  const question = quiz.getQuestion();
+  const question = selectedQuiz.getQuestion();
 
   if (question.checkAnswer(answer)) {
     selectedQuiz.numberOfCorrectAnswer += 1;
@@ -138,3 +142,5 @@ function startTimerLine() {
     }
   }
 }
+
+selectQuiz(2);

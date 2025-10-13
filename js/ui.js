@@ -67,4 +67,8 @@ class UI {
 
     document.querySelector(".score-text").innerHTML = tag;
   };
+
+  showTitle = function (quiz) {
+    this.quizTitle.innerHTML = quiz.quizTitle;
+  };
 }
