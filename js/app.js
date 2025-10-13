@@ -31,7 +31,7 @@ function startQuiz(quizID) {
 }
 
 ui.btnNext.addEventListener("click", function () {
-  if (selectedQuiz.length != selectedQuiz.questionIndex) {
+  if (selectedQuiz.questions.length != selectedQuiz.questionIndex) {
     ui.showTitle(selectedQuiz); // This function is defined in ui.js
     ui.showQuestion(selectedQuiz.getQuestion());
     ui.showQuestionNumber(
