@@ -1,12 +1,13 @@
-function Question(questionText, answerChoices, correctAnswer) {
-  this.questionText = questionText;
-  this.answerChoices = answerChoices;
-  this.correctAnswer = correctAnswer;
+class Question {
+  constructor(questionText, answerChoices, correctAnswer) {
+    this.questionText = questionText;
+    this.answerChoices = answerChoices;
+    this.correctAnswer = correctAnswer;
+  }
+  checkAnswer(answer) {
+    return answer === this.correctAnswer;
+  }
 }
-
-Question.prototype.checkAnswer = function (answer) {
-  return answer === this.correctAnswer;
-};
 
 // These contents below must be operated in a backend app because they are downloaded when a user run this app and users can see them all. So we don't want users to see these contents!!!
 
