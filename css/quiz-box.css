@@ -13,12 +13,11 @@ h4, h5 {
 }
 
 .app-container {
-    width: 550px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    width: 100%;
     border-radius: 8px;
+    padding: 5rem;
 }
 
 .app-container .card {
@@ -98,7 +97,21 @@ h4, h5 {
 
 /* quizbox */
 
-#quiz-box #header {
+#quiz-box {
+    width: 550px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#quiz-box.active {
+    color: #333 !important;
+}
+
+
+#quiz-box #card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;

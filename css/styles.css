@@ -172,6 +172,12 @@
     border-radius: 8px 8px 0 0;
     margin: 2rem 1rem;
     position: relative;
+    display: none;
+}
+
+.quiz-container.active {
+    display: block;
+    color: #333 !important;
 }
 
 #quiz-section .section-title {
@@ -260,7 +266,7 @@
 
 /* quiz-box */
 
-#quiz-box, #score-box, .quiz-list {
+#quiz-box, #score-box{
     display: none !important;
 }
 
@@ -268,9 +274,7 @@
     display: block !important;
 }
 
-.quiz-list.active {
-    display: flex !important;
-}
+
 
 /* footer */
 #footer {

@@ -1,9 +1,8 @@
 class UI {
   constructor() {
     this.quizBox = document.querySelector("#quiz-box");
-    this.buttonBox = document.querySelector("#button-box");
     this.scoreBox = document.querySelector("#score-box");
-    this.body = document.querySelector("#quiz-box #body");
+    this.body = document.querySelector("#quiz-box #card-body");
     this.correctIcon = '<i class="bi bi-check-circle"></i>';
     this.inCorrectIcon = '<i class="bi bi-x-circle"></i>';
     this.btnNext = document.getElementById("btnNext");
@@ -15,6 +14,7 @@ class UI {
     this.timeLine = document.querySelector(".time-line");
     this.quizTitle = document.querySelector(".quiz-title");
     this.quizList = document.querySelector(".quiz-list");
+    this.quizContainer = document.querySelector(".quiz-container");
   }
 
   showQuizzes(quizArray) {

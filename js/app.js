@@ -75,7 +75,11 @@ function selectQuiz(quizID) {
 
 function startQuiz(quizID) {
   if (selectQuiz(quizID)) {
-    ui.btnStart.click();
+    startTimer(9);
+    startTimerLine();
+    ui.btnNext.click();
+    ui.quizBox.classList.add("active");
+    ui.quizContainer.classList.remove("active");
   }
 }
 
@@ -99,14 +103,6 @@ ui.btnNext.addEventListener("click", function () {
     ui.quizBox.classList.remove("active");
     ui.scoreBox.classList.add("active");
   }
-});
-
-ui.btnStart.addEventListener("click", function () {
-  startTimer(9);
-  startTimerLine();
-  ui.btnNext.click();
-  ui.quizBox.classList.add("active");
-  ui.buttonBox.classList.remove("active");
 });
 
 ui.btnQuit.addEventListener("click", function () {
@@ -154,7 +150,7 @@ function optionSelected(e) {
 let counter;
 
 function startTimer(time) {
-  ui.timeSecond.innerText = time;
+  ui.timeSecond.innerText = 10;
   clearInterval(counter);
   counter = setInterval(timer, 1000);
 
