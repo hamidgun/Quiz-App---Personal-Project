@@ -14,9 +14,30 @@ class UI {
     this.timeSecond = document.querySelector(".time-second");
     this.timeLine = document.querySelector(".time-line");
     this.quizTitle = document.querySelector(".quiz-title");
+    this.quizList = document.querySelector(".quiz-list");
   }
+
+  showQuizzes(quizArray) {
+    const fragment = document.createDocumentFragment();
+
+    quizArray.forEach((quiz) => {
+      const quizCard = document.createElement("div");
+      quizCard.classList.add("quiz-card");
+      quizCard.innerHTML = `
+        <img src="${quiz.quizImage}" alt="${quiz.quizTitle}"/>
+        <div class="quiz-content">
+                <h3>${quiz.quizTitle}</h3>
+                <p>${quiz.quizDescription}</p>
+                <button class="btn-start" data-quiz-id="${quiz.quizID}">Take Quiz</button>
+              </div>
+      `;
+      fragment.appendChild(quizCard);
+    });
+
+    this.quizList.appendChild(fragment);
+  }
+
   showQuestion(question) {
-    this.body.innerHTML = "";
     this.body.innerHTML = "";
 
     const cardBody = document.createElement("div");

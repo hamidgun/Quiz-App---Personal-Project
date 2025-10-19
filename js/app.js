@@ -1,14 +1,63 @@
 const quizList = [
-  new Quiz(1, "JavaScript", jsQuestionList),
-  new Quiz(2, "HTML", htmlQuestionList),
-  new Quiz(3, "CSS", cssQuestionList),
-  new Quiz(4, "Python", pythonQuestionList),
-  new Quiz(5, "React", reactQuestionList),
-  new Quiz(6, "PHP", phpQuestionList),
+  new Quiz(
+    1,
+    "JavaScript",
+    jsQuestionList,
+    "https://picsum.photos/300/200?random=1",
+    "Test your JavaScript knowledge with this comprehensive quiz!"
+  ),
+  new Quiz(
+    2,
+    "HTML",
+    htmlQuestionList,
+    "https://picsum.photos/300/200?random=2",
+    "How well do you know HTML? Take this quiz to find out!"
+  ),
+  new Quiz(
+    3,
+    "CSS",
+    cssQuestionList,
+    "https://picsum.photos/300/200?random=3",
+    "Challenge yourself with this CSS styling quiz!"
+  ),
+  new Quiz(
+    4,
+    "Python",
+    pythonQuestionList,
+    "https://picsum.photos/300/200?random=4",
+    "Test your Python programming skills!"
+  ),
+  new Quiz(
+    5,
+    "React",
+    reactQuestionList,
+    "https://picsum.photos/300/200?random=5",
+    "How much do you know about React? Find out now!"
+  ),
+  new Quiz(
+    6,
+    "PHP",
+    phpQuestionList,
+    "https://picsum.photos/300/200?random=6",
+    "Challenge your knowledge of PHP programming!"
+  ),
 ];
 
 const ui = new UI(); // UI is defined in ui.js
 let selectedQuiz = null;
+
+// Display all quizzes on page load
+ui.showQuizzes(quizList);
+
+// Add click event listener to all quiz cards
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("btn-start")) {
+    const quizID = parseInt(e.target.getAttribute("data-quiz-id"));
+    if (quizID) {
+      startQuiz(quizID);
+    }
+  }
+});
 
 function selectQuiz(quizID) {
   selectedQuiz = quizList.find((quiz) => quiz.quizID === quizID);
@@ -105,7 +154,7 @@ function optionSelected(e) {
 let counter;
 
 function startTimer(time) {
-  ui.timeSecond.innerText = 10;
+  ui.timeSecond.innerText = time;
   clearInterval(counter);
   counter = setInterval(timer, 1000);
 
@@ -142,5 +191,3 @@ function startTimerLine() {
     }
   }
 }
-
-selectQuiz(2);
