@@ -191,30 +191,10 @@ h4, h5 {
 
 /* start button */
 
-#button-box{
-    text-align: center;
-}
-
-#button-box .btn-start {
-    color: #fff;
-    background-color: #ffc107;
-    padding: 10px;
-    border: 2px solid #ffc107;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-#button-box .btn-start:hover {
-    background-color: #fff;
-    color: #ffc107;
-}
-
-#button-box, #quiz-box, #score-box {
+#quiz-box, #score-box {
     display: none !important;
 }
 
-#button-box.active, #quiz-box.active, #score-box.active {
+#quiz-box.active, #score-box.active {
     display: block !important;
 }

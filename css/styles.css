@@ -171,6 +171,7 @@
     border: 1px solid #ddd;
     border-radius: 8px 8px 0 0;
     margin: 2rem 1rem;
+    position: relative;
 }
 
 #quiz-section .section-title {
@@ -257,6 +258,20 @@
     color: #5D2F77;
 }
 
+/* quiz-box */
+
+#quiz-box, #score-box, .quiz-list {
+    display: none !important;
+}
+
+#quiz-box.active, #score-box.active {
+    display: block !important;
+}
+
+.quiz-list.active {
+    display: flex !important;
+}
+
 /* footer */
 #footer {
     background-color: #E45A92;
@@ -286,7 +301,9 @@
 }
 #footer .social-links a:hover {
     color: #ddd;
-}   
+}
+
+
 
 /* responsive */
 
