@@ -164,7 +164,7 @@
 /* quiz list */
 
 #quiz-section {
-    margin-top: 10rem;
+    margin: 15rem 0 10rem 0;
 }
 
 .quiz-container {
@@ -282,6 +282,9 @@
     color: #fff;
     padding: 2rem 0;
     margin-top: 4rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 #footer .footer-content {
     display: flex;
