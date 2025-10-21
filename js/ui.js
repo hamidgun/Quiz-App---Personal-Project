@@ -15,6 +15,7 @@ class UI {
     this.quizTitle = document.querySelector(".quiz-title");
     this.quizList = document.querySelector(".quiz-list");
     this.quizContainer = document.querySelector(".quiz-container");
+    this.appContainer = document.querySelector(".app-container");
   }
 
   showQuizzes(quizArray) {

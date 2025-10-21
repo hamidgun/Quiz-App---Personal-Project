@@ -79,6 +79,7 @@ function startQuiz(quizID) {
     startTimerLine();
     ui.btnNext.click();
     ui.quizBox.classList.add("active");
+    ui.appContainer.classList.add("active");
     ui.quizContainer.classList.remove("active");
   }
 }
@@ -107,13 +108,16 @@ ui.btnNext.addEventListener("click", function () {
 
 ui.btnQuit.addEventListener("click", function () {
   window.location.reload();
+  ui.appContainer.classList.remove("active");
+  ui.quizContainer.classList.remove("active");
+  ui.quizList.classList.add("active");
 });
 
 ui.btnReplay.addEventListener("click", function () {
   selectedQuiz.questionIndex = 0;
   selectedQuiz.numberOfCorrectAnswer = 0;
   ui.scoreBox.classList.remove("active");
-  ui.btnStart.click();
+  startQuiz(selectedQuiz.quizID);
   ui.showQuestion(selectedQuiz.getQuestion());
   ui.showQuestionNumber(
     selectedQuiz.questionIndex + 1,

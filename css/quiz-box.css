@@ -13,7 +13,6 @@ h4, h5 {
 }
 
 .app-container {
-    display: flex;
     justify-content: center;
     width: 100%;
     border-radius: 8px;
@@ -177,6 +176,7 @@ h4, h5 {
 
 #score-box .score-text {
     margin: 15px 0px;
+    color: #333;
 }
 
 #score-box .score-btn {
@@ -204,10 +204,14 @@ h4, h5 {
 
 /* start button */
 
-#quiz-box, #score-box {
+#quiz-box, #score-box, .app-container {
     display: none !important;
 }
 
-#quiz-box.active, #score-box.active {
+#quiz-box.active, #score-box.active{
     display: block !important;
+}
+
+.app-container.active {
+    display: flex !important;
 }
