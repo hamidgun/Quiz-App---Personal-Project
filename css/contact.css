@@ -1,3 +1,5 @@
+@import url(utils.css);
+
 #contact {
     margin: 7rem 0;
    color: #fff;
@@ -34,7 +36,7 @@
 }
 .contact-form {
     padding: 2rem;
-    background-color: #5D2F77;
+    background-color: var(--primary-color);
     border-radius: 6px;
 }  
 
@@ -70,7 +72,7 @@
 
 .contact-form button:hover {
     background-color: #fff;
-    color: #5D2F77;
+    color: var(--primary-color);
 }
 
 .contact-form textarea {

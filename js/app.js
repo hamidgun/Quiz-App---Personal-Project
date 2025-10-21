@@ -3,42 +3,42 @@ const quizList = [
     1,
     "JavaScript",
     jsQuestionList,
-    "https://picsum.photos/300/200?random=1",
+    "img/js.jpg",
     "Test your JavaScript knowledge with this comprehensive quiz!"
   ),
   new Quiz(
     2,
     "HTML",
     htmlQuestionList,
-    "https://picsum.photos/300/200?random=2",
+    "img/html.jpg",
     "How well do you know HTML? Take this quiz to find out!"
   ),
   new Quiz(
     3,
     "CSS",
     cssQuestionList,
-    "https://picsum.photos/300/200?random=3",
+    "img/css.png",
     "Challenge yourself with this CSS styling quiz!"
   ),
   new Quiz(
     4,
     "Python",
     pythonQuestionList,
-    "https://picsum.photos/300/200?random=4",
+    "img/python.jpg",
     "Test your Python programming skills!"
   ),
   new Quiz(
     5,
     "React",
     reactQuestionList,
-    "https://picsum.photos/300/200?random=5",
+    "img/react.webp",
     "How much do you know about React? Find out now!"
   ),
   new Quiz(
     6,
     "PHP",
     phpQuestionList,
-    "https://picsum.photos/300/200?random=6",
+    "img/php.jpg",
     "Challenge your knowledge of PHP programming!"
   ),
 ];
