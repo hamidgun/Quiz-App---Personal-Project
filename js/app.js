@@ -78,7 +78,7 @@ function selectQuiz(quizID) {
 
 function startQuiz(quizID) {
   if (selectQuiz(quizID)) {
-    startTimer(9);
+    startTimer(10);
     startTimerLine();
     ui.btnNext.click();
     ui.quizBox.classList.add("active");
@@ -95,7 +95,7 @@ ui.btnNext.addEventListener("click", function () {
       selectedQuiz.questionIndex + 1,
       selectedQuiz.questions.length
     ); // This function is defined in ui.js
-    startTimer(9); // defined below
+    startTimer(10); // defined below
     startTimerLine(); // defined below
     ui.btnNext.classList.remove("show");
   } else {
@@ -154,20 +154,27 @@ function optionSelected(e) {
 let counter;
 
 function startTimer(time) {
-  ui.timeSecond.innerText = 10;
+  ui.timeSecond.innerText = time;
   clearInterval(counter);
-  counter = setInterval(timer, 1000);
+
+  // Use timeout to check immediately when time runs out
+  const startTime = Date.now();
+  const duration = time * 1000;
+
+  counter = setInterval(timer, 100); // Check every 100ms for better precision
 
   function timer() {
-    ui.timeSecond.innerText = time;
-    time--;
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.ceil((duration - elapsed) / 1000);
 
-    if (time < 0) {
+    if (remaining <= 0) {
       clearInterval(counter);
+      ui.timeSecond.innerText = 0;
       ui.disabledAllOption();
       selectedQuiz.questionIndex += 1;
-
       ui.btnNext.classList.add("show");
+    } else {
+      ui.timeSecond.innerText = remaining;
     }
   }
 }
@@ -178,16 +185,20 @@ function startTimerLine() {
   clearInterval(counterLine);
 
   let line_width = 0;
+  const maxWidth = ui.quizBox.offsetWidth; // Get the actual width of the quiz box
+  const timerDuration = 10000; // 10 seconds in milliseconds
+  const intervalTime = 20; // Update every 20ms
+  const increment = maxWidth / (timerDuration / intervalTime); // Calculate increment per interval
 
-  counterLine = setInterval(timer, 20); // built-in JS function.
+  counterLine = setInterval(timer, intervalTime);
 
   function timer() {
-    line_width += 1.1;
+    line_width += increment;
 
     ui.timeLine.style.width = line_width + "px";
 
-    if (line_width > 549) {
-      clearInterval(counterLine); // built-in JS function.
+    if (line_width >= maxWidth) {
+      clearInterval(counterLine);
     }
   }
 }
