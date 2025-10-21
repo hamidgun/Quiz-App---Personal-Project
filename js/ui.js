@@ -29,7 +29,7 @@ class UI {
         <div class="quiz-content">
                 <h3>${quiz.quizTitle}</h3>
                 <p>${quiz.quizDescription}</p>
-                <button class="btn-start" data-quiz-id="${quiz.quizID}">Take Quiz</button>
+                <a href="quiz.html?id=${quiz.quizID}" class="btn-start">Take Quiz</a>
               </div>
       `;
       fragment.appendChild(quizCard);

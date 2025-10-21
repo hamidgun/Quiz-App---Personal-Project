@@ -46,16 +46,19 @@ const quizList = [
 const ui = new UI(); // UI is defined in ui.js
 let selectedQuiz = null;
 
-// Display all quizzes on page load
-ui.showQuizzes(quizList);
+// Display all quizzes on page load (only on index page)
+if (ui.quizList) {
+  ui.showQuizzes(quizList);
+}
 
-// Add click event listener to all quiz cards
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("btn-start")) {
-    const quizID = parseInt(e.target.getAttribute("data-quiz-id"));
-    if (quizID) {
-      startQuiz(quizID);
-    }
+// Check if we're on quiz.html and auto-start the quiz
+window.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const quizID = parseInt(urlParams.get("id"));
+
+  if (quizID && ui.quizBox && !ui.quizList) {
+    // We're on quiz.html with a quiz ID
+    startQuiz(quizID);
   }
 });
 
@@ -79,8 +82,8 @@ function startQuiz(quizID) {
     startTimerLine();
     ui.btnNext.click();
     ui.quizBox.classList.add("active");
-    ui.appContainer.classList.add("active");
-    ui.quizContainer.classList.remove("active");
+    // ui.appContainer.classList.add("active");
+    // ui.quizContainer.classList.remove("active");
   }
 }
 
@@ -107,10 +110,7 @@ ui.btnNext.addEventListener("click", function () {
 });
 
 ui.btnQuit.addEventListener("click", function () {
-  window.location.reload();
-  ui.appContainer.classList.remove("active");
-  ui.quizContainer.classList.remove("active");
-  ui.quizList.classList.add("active");
+  window.location.href = "index.html";
 });
 
 ui.btnReplay.addEventListener("click", function () {
