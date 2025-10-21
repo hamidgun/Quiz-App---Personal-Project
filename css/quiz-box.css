@@ -28,7 +28,7 @@ h4, h5 {
 .app-container .card-header {
     padding: 10px;
     border-bottom: 1px solid #e6e6e6;
-    background-color: whitesmoke;
+    background-color: #5D2F77;
 }
 
 .card .card-body {
@@ -38,6 +38,7 @@ h4, h5 {
     padding-bottom: 16px;
     font-size: 1.5rem;
     font-weight: 600;
+
 }
 
 .option-list .option{
@@ -77,7 +78,7 @@ h4, h5 {
     width: 100%;
     height: 45px;
     border-top: 1px solid #e6e6e6;
-    background-color: whitesmoke;
+    background-color: #5D2F77;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,7 +87,7 @@ h4, h5 {
 }
 
 .card .card-footer .question-count{
-    background-color: #e60000;
+    background-color: #E45A92;
     color: #fff;
     font-size: 14px;
     font-weight: 400;
@@ -109,6 +110,9 @@ h4, h5 {
     color: #333 !important;
 }
 
+#quiz-box .quiz-title {
+    color: #fff;
+}
 
 #quiz-box #card-header {
     display: flex;
@@ -124,12 +128,13 @@ h4, h5 {
     gap: 5px;
     padding: 8px;
     border-radius: 3px;
+    color: #fff;
 }
 
 #quiz-box .time-second {
     text-align: center;
     border-radius: 3px;
-    background-color: #0d6efd;
+    background-color: #E45A92;
     color: #fff;
     padding: 2px 10px;
 }
@@ -138,12 +143,16 @@ h4, h5 {
     opacity: 0;
     transform: scale(0.8);
     transition: all .3s ease;
+        background-color: #E45A92;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
 }
 
 #quiz-box #btnNext.show {
     opacity: 1;
     transform: scale(1);
-    padding: .3rem .5rem;
+    padding: .5rem .7rem;
 }
 
 #quiz-box .time-line {
@@ -151,7 +160,7 @@ h4, h5 {
     bottom: 0;
     left: 0;
     height: 4px;
-    background-color: #f0a500;
+    background-color: #E45A92;
 }
 
 /* scorebox */
@@ -165,10 +174,13 @@ h4, h5 {
     justify-content: space-between;
     text-align: center;
     gap: 20px;
+    width: 85rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 #score-box .bi{
-    color: #0d6efd;
+    color: #5D2F77;
     font-size: 80px;
     
 }
@@ -185,10 +197,10 @@ h4, h5 {
 }
 
 #score-box .score-btn .btn-replay, .btn-quit {
-    background-color: #0d6efd;
+    background-color: #5D2F77;
     padding: 5px;
     color: #fff;
-    border: 1px solid #0d6efd;
+    border: 1px solid #5D2F77;
     border-radius: 3px;
     transition: .3s;
     width: 60px;
@@ -197,8 +209,8 @@ h4, h5 {
 
 #score-box .score-btn .btn-replay:hover, .btn-quit:hover {
     background-color: #fff;
-    color: #0d6efd;
-    border-color: #0d6efd;
+    color: #5D2F77;
+    border-color: #5D2F77;
 }
 
 /* start button */

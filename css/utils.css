@@ -25,6 +25,8 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    display: block;
+    width: 100%;
 }
 
 ul {
@@ -49,4 +51,26 @@ p {
 
 .fa-bars {
     font-size: 2rem;
+}
+
+.fa-square-caret-up {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 1rem;
+    font-size: 6rem;
+    color: #634077;
+    z-index: 1;
+    transition-duration: .3s;
+}
+
+@media (max-width: 768px) {
+    .fa-square-caret-up {
+        font-size: 4rem;
+        bottom: 1.5rem;
+    }
+}
+
+.fa-square-caret-up:hover {
+    color: #5D2F77;
+    cursor: pointer;
 }

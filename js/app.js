@@ -46,6 +46,31 @@ const quizList = [
 const ui = new UI(); // UI is defined in ui.js
 let selectedQuiz = null;
 
+// Mobile menu toggle functionality
+const dropdownBtn = document.querySelector(".dropdown-btn");
+const navMenu = document.querySelector(".nav-menu");
+
+if (dropdownBtn) {
+  dropdownBtn.addEventListener("click", function () {
+    navMenu.classList.toggle("active");
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".nav-container")) {
+      navMenu.classList.remove("active");
+    }
+  });
+
+  // Close menu when clicking a link
+  const navLinks = document.querySelectorAll(".nav-link");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      navMenu.classList.remove("active");
+    });
+  });
+}
+
 // Display all quizzes on page load (only on index page)
 if (ui.quizList) {
   ui.showQuizzes(quizList);
