@@ -114,31 +114,9 @@
       src="https://kit.fontawesome.com/2c6fab47d7.js"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // Mobile menu toggle functionality
-      const dropdownBtn = document.querySelector(".dropdown-btn");
-      const navMenu = document.querySelector(".nav-menu");
-
-      if (dropdownBtn) {
-        dropdownBtn.addEventListener("click", function () {
-          navMenu.classList.toggle("active");
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener("click", function (e) {
-          if (!e.target.closest(".nav-container")) {
-            navMenu.classList.remove("active");
-          }
-        });
-
-        // Close menu when clicking a link
-        const navLinks = document.querySelectorAll(".nav-link");
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function () {
-            navMenu.classList.remove("active");
-          });
-        });
-      }
-    </script>
+    <script src="js/questions.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
