@@ -1,52 +1,43 @@
-const quizList = [
-  new Quiz(
-    1,
-    "JavaScript",
-    jsQuestionList,
-    "img/js.jpg",
-    "Test your JavaScript knowledge with this comprehensive quiz!"
-  ),
-  new Quiz(
-    2,
-    "HTML",
-    htmlQuestionList,
-    "img/html.jpg",
-    "How well do you know HTML? Take this quiz to find out!"
-  ),
-  new Quiz(
-    3,
-    "CSS",
-    cssQuestionList,
-    "img/css.png",
-    "Challenge yourself with this CSS styling quiz!"
-  ),
-  new Quiz(
-    4,
-    "Python",
-    pythonQuestionList,
-    "img/python.jpg",
-    "Test your Python programming skills!"
-  ),
-  new Quiz(
-    5,
-    "React",
-    reactQuestionList,
-    "img/react.webp",
-    "How much do you know about React? Find out now!"
-  ),
-  new Quiz(
-    6,
-    "PHP",
-    phpQuestionList,
-    "img/php.jpg",
-    "Challenge your knowledge of PHP programming!"
-  ),
-];
+// MockAPI URL for quizzes
+const API_URL = "https://69036a31d0f10a340b24238d.mockapi.io/quizzes";
 
 const ui = new UI(); // UI is defined in ui.js
 let selectedQuiz = null;
+let quizList = [];
 
-// Mobile menu toggle functionality
+// Fetch quizzes from MockAPI
+async function fetchQuizzes() {
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+
+    // Convert API data to Quiz instances with Question instances
+    quizList = data.map((quiz) => {
+      const questions = quiz.questions.map(
+        (q) => new Question(q.questionText, q.answerChoices, q.correctAnswer)
+      );
+
+      return new Quiz(
+        quiz.id,
+        quiz.title,
+        questions,
+        quiz.image,
+        quiz.description
+      );
+    });
+
+    console.log(`Loaded ${quizList.length} quizzes from API`);
+    return quizList;
+  } catch (error) {
+    console.error("Error fetching quizzes:", error);
+    return [];
+  }
+}
+
+// Dropdown menu functionality
 const dropdownBtn = document.querySelector(".dropdown-btn");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -55,14 +46,12 @@ if (dropdownBtn) {
     navMenu.classList.toggle("active");
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", function (e) {
     if (!e.target.closest(".nav-container")) {
       navMenu.classList.remove("active");
     }
   });
 
-  // Close menu when clicking a link
   const navLinks = document.querySelectorAll(".nav-link");
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
@@ -71,13 +60,15 @@ if (dropdownBtn) {
   });
 }
 
-// Display all quizzes on page load (only on index page)
-if (ui.quizList) {
-  ui.showQuizzes(quizList);
-}
+window.addEventListener("DOMContentLoaded", async function () {
+  // Fetch quizzes from API first
+  await fetchQuizzes();
 
-// Check if we're on quiz.html and auto-start the quiz
-window.addEventListener("DOMContentLoaded", function () {
+  // Show quizzes if we're on index.html
+  if (ui.quizList) {
+    ui.showQuizzes(quizList);
+  }
+
   const urlParams = new URLSearchParams(window.location.search);
   const quizID = parseInt(urlParams.get("id"));
 
@@ -212,7 +203,7 @@ function startTimerLine() {
   let line_width = 0;
   const maxWidth = ui.quizBox.offsetWidth; // Get the actual width of the quiz box
   const timerDuration = 10000; // 10 seconds in milliseconds
-  const intervalTime = 20; // Update every 20ms
+  const intervalTime = 20;
   const increment = maxWidth / (timerDuration / intervalTime); // Calculate increment per interval
 
   counterLine = setInterval(timer, intervalTime);

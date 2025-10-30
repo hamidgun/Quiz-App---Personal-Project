@@ -1,11 +1,5 @@
 class Quiz {
-  constructor(
-    quizID,
-    quizTitle,
-    questions,
-    quizImage = "https://picsum.photos/300/200",
-    quizDescription = "Test your knowledge!"
-  ) {
+  constructor(quizID, quizTitle, questions, quizImage, quizDescription) {
     this.quizID = quizID;
     this.quizTitle = quizTitle;
     this.questionIndex = 0;
