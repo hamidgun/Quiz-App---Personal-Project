@@ -67,6 +67,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
 }
 
 .search-form input {
@@ -75,6 +76,53 @@
     border-radius: 4px;
     font-size: 1.4rem;
     width: 300px;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+.search-suggestions.active {
+    display: block;
+}
+
+.search-suggestion-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.search-suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.search-suggestion-item h4 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.search-suggestion-item p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #666;
 }
 
 

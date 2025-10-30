@@ -60,6 +60,82 @@ if (dropdownBtn) {
   });
 }
 
+const searchForm = document.querySelector(".search-form");
+const searchInput = document.querySelector(".search-form input");
+const searchSuggestions = document.querySelector(".search-suggestions");
+
+if (searchForm && searchInput && searchSuggestions) {
+  searchForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+  });
+
+  searchInput.addEventListener("input", function () {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+
+    if (searchTerm && quizList.length > 0) {
+      const filtered = quizList.filter((quiz) => {
+        return (
+          quiz.quizTitle.toLowerCase().includes(searchTerm) ||
+          quiz.quizDescription.toLowerCase().includes(searchTerm)
+        );
+      });
+
+      showSearchSuggestions(filtered);
+    } else {
+      hideSearchSuggestions();
+    }
+  });
+
+  // Close suggestions when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!searchForm.contains(e.target)) {
+      hideSearchSuggestions();
+    }
+  });
+}
+
+function showSearchSuggestions(quizzes) {
+  if (quizzes.length === 0) {
+    searchSuggestions.innerHTML =
+      '<div class="search-suggestion-item"><p>No quizzes found</p></div>';
+    searchSuggestions.classList.add("active");
+    return;
+  }
+
+  searchSuggestions.innerHTML = "";
+
+  quizzes.forEach((quiz) => {
+    const item = document.createElement("div");
+    item.classList.add("search-suggestion-item");
+    item.innerHTML = `
+      <h4>${quiz.quizTitle}</h4>
+    `;
+
+    item.addEventListener("click", function () {
+      window.location.href = `quiz.html?id=${quiz.quizID}`;
+    });
+
+    searchSuggestions.appendChild(item);
+  });
+
+  searchSuggestions.classList.add("active");
+}
+
+function hideSearchSuggestions() {
+  searchSuggestions.classList.remove("active");
+  searchSuggestions.innerHTML = "";
+}
+
+function filterQuizzes(searchTerm) {
+  const filtered = quizList.filter((quiz) => {
+    return (
+      quiz.quizTitle.toLowerCase().includes(searchTerm) ||
+      quiz.quizDescription.toLowerCase().includes(searchTerm)
+    );
+  });
+  ui.showQuizzes(filtered);
+}
+
 window.addEventListener("DOMContentLoaded", async function () {
   // Fetch quizzes from API first
   await fetchQuizzes();
