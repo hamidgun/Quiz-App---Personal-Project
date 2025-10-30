@@ -137,10 +137,8 @@ function filterQuizzes(searchTerm) {
 }
 
 window.addEventListener("DOMContentLoaded", async function () {
-  // Fetch quizzes from API first
   await fetchQuizzes();
 
-  // Show quizzes if we're on index.html
   if (ui.quizList) {
     ui.showQuizzes(quizList);
   }
