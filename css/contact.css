@@ -55,6 +55,9 @@
     color: #333;
     border-radius: 6px;
     margin-bottom: .8rem;
+    display: none;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 .contact-form button {

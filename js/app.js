@@ -152,6 +152,20 @@ window.addEventListener("DOMContentLoaded", async function () {
     // We're on quiz.html with a quiz ID
     startQuiz(quizID);
   }
+
+  // Contact form
+  const contactForm = document.getElementById("contactForm");
+  const alertMessage = document.getElementById("alertMessage");
+
+  if (contactForm && alertMessage) {
+    if (urlParams.get("success") === "true") {
+      alertMessage.textContent =
+        "Message sent successfully! We'll get back to you soon.";
+      alertMessage.style.display = "block";
+      alertMessage.style.backgroundColor = "#4caf50";
+      alertMessage.style.color = "white";
+    }
+  }
 });
 
 function selectQuiz(quizID) {
